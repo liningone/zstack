@@ -1,5 +1,6 @@
 package org.zstack.test.integration.storage
 
+import org.zstack.test.integration.storage.primary.local.LocalStorageHostRefVOCase
 import org.zstack.test.integration.storage.primary.local.LocalStorageMigrateVolumeCase
 import org.zstack.test.integration.storage.primary.nfs.NfsGCCase
 import org.zstack.test.integration.storage.primary.smp.SMPCapacityCase
@@ -36,7 +37,8 @@ class StorageTest extends Test {
         runSubCases([
                 new LocalStorageMigrateVolumeCase(),
                 new SMPCapacityCase(),
-                new NfsGCCase()
+                new NfsGCCase(),
+                new LocalStorageHostRefVOCase(),
         ])
     }
 }
