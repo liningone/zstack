@@ -470,7 +470,7 @@ public class ManagementNodeManagerImpl extends AbstractService implements Manage
                 }
             }).then(new NoRollbackFlow() {
                 String __name__ = "listen-node-life-cycle-events";
-
+/
                 @Override
                 public void run(FlowTrigger trigger, Map data) {
                     evtf.on(ManagementNodeCanonicalEvent.NODE_LIFECYCLE_PATH, nodeLifeCycleCallback);

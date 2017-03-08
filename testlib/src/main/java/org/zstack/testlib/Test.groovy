@@ -119,7 +119,7 @@ abstract class Test implements ApiHelper {
                 }
             }
 
-            ShellUtils.run("build/deploydb.sh $user $password", baseDir, false)
+            //ShellUtils.run("build/deploydb.sh $user $password", baseDir, false)
             logger.info("Deploying database successfully")
         } catch (Exception e) {
             throw new CloudRuntimeException("Unable to deploy zstack database for testing", e)

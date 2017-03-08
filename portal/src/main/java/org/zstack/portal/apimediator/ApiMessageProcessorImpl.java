@@ -89,9 +89,13 @@ public class ApiMessageProcessorImpl implements ApiMessageProcessor {
         try {
             JAXBContext context = JAXBContext.newInstance("org.zstack.portal.apimediator.schema");
             List<String> paths = new ArrayList<String>();
-            for (String configFolder : this.configFolders) {
-                paths.addAll(PathUtil.scanFolderOnClassPath(configFolder));
+
+            if(this.configFolders != null){
+                for (String configFolder : this.configFolders) {
+                    paths.addAll(PathUtil.scanFolderOnClassPath(configFolder));
+                }
             }
+
 
             for (String p : paths) {
                 if (!p.endsWith(".xml")) {

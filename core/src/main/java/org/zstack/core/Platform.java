@@ -530,6 +530,9 @@ public class Platform {
     }
 
     public static String getManagementServerIp() {
+
+        managementServerIp = "127.0.0.1";
+
         if (managementServerIp != null) {
             return managementServerIp;
         }
