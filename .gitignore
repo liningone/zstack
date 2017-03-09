@@ -30,4 +30,5 @@ zstack-api.log
 test-premium/zstack-integration-test-result/
 envDSLTree
 test/zstack-integration-test-result/
+test/src/test/java/org/zstack/test/meveco/
 premium/test-premium/zstack-api.log
