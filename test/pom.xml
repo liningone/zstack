@@ -202,6 +202,11 @@
         </dependency>
         <dependency>
             <groupId>org.zstack</groupId>
+            <artifactId>mevoco</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zstack</groupId>
             <artifactId>rest</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -212,7 +217,7 @@
         </dependency>
         <dependency>
             <groupId>org.zstack</groupId>
-            <artifactId>testlib</artifactId>
+            <artifactId>testlib-premium</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
@@ -318,6 +323,24 @@
                             <resources>
                                 <resource>
                                     <directory>../conf</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>copy-premium-conf</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/test-classes</outputDirectory>
+                            <includeEmptyDirs>true</includeEmptyDirs>
+                            <resources>
+                                <resource>
+                                    <directory>../premium/conf</directory>
                                 </resource>
                             </resources>
                         </configuration>

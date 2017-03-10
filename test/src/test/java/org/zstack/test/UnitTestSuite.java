@@ -142,10 +142,8 @@ public class UnitTestSuite {
                     } catch (ClassNotFoundException e) {
                         String err = String.format("Unable to find unit test class[%s], please remove it from UnitTestSuiteConfig.xml or create this unit test case",
                                 c.getClazz());
-                        logger.warn(err);
-                        continue;
+                        throw new CloudRuntimeException(err, e);
                     }
-
                     String simpleName = clazz.getSimpleName();
                     if (simpleName.length() > maxCaseNameLen) {
                         maxCaseNameLen = simpleName.length();

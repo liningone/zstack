@@ -22,6 +22,8 @@
     <TestCase class="org.zstack.test.image.TestCreateTemplateFromRootVolumeFailure5"/>
     <TestCase class="org.zstack.test.image.TestUpdateImage"/>
     <TestCase class="org.zstack.test.image.TestPolicyForImage"/>
+    <TestCase class="org.zstack.test.image.TestImageQgaEnable"/>
+    <TestCase class="org.zstack.test.image.TestImageQgaEnable2"/>
     <TestCase class="org.zstack.test.image.TestCreateTemplateFromRootVolumeTimeoutManagement"/>
     <TestCase class="org.zstack.test.image.TestSyncImageSize"/>
     <TestCase class="org.zstack.test.image.TestQuotaUsageForActualSize"/>

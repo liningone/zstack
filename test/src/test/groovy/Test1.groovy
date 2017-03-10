@@ -1,9 +1,5 @@
-import org.zstack.header.vm.APIStopVmInstanceMsg
-import org.zstack.header.vm.StopVmInstanceMsg
 import org.zstack.testlib.DiskOfferingSpec
 import org.zstack.testlib.EnvSpec
-import org.zstack.testlib.Test
-import org.zstack.testlib.VmSpec
 import org.zstack.testlib.premium.TestPremium
 import org.zstack.utils.data.SizeUnit
 
@@ -12,7 +8,7 @@ import org.zstack.utils.data.SizeUnit
  * 1. 2
  * 3
  */
-class Test3 extends Test {
+class Test1 extends TestPremium {
     boolean success
     DiskOfferingSpec diskOfferingSpec
     EnvSpec envSpec
@@ -27,10 +23,12 @@ class Test3 extends Test {
             sftpBackupStorage()
             portForwarding()
             lb()
+            ipsec()
             ceph()
             smp()
             localStorage()
             securityGroup()
+            imageStore()
         }
     }
 
@@ -43,7 +41,7 @@ class Test3 extends Test {
             }
 
             diskOffering {
-                name = "diskOffering"
+                //name = "diskOffering"
                 diskSize = SizeUnit.GIGABYTE.toByte(10)
                 useAccount("xin")
             }
@@ -85,6 +83,14 @@ class Test3 extends Test {
                     url  = "http://zstack.org/download/test.qcow2"
                     useAccount("xin")
                 }
+            }
+
+            imageStore {
+                name = "image-store"
+                url = "/image_store"
+                hostname = "127.0.0.1"
+                username = "root"
+                password = "password"
             }
 
             zone {
@@ -178,7 +184,7 @@ class Test3 extends Test {
                     useAccount("xin")
                 }
 
-                attachBackupStorage("sftp")
+                attachBackupStorage("sftp", "image-store", "ceph-bk")
 
                 eip {
                     name = "eip"
@@ -210,6 +216,14 @@ class Test3 extends Test {
                     }
                 }
 
+                ipsec {
+                    name = "ipsec"
+                    peerAddress = "1.1.1.1"
+                    peerCidrs = ["10.10.0.0/24"]
+                    useVip("pubL3")
+                    useL3Network("l3")
+                }
+
                 securityGroup {
                     name = "sg"
                     attachL3Network("l3")
@@ -233,31 +247,12 @@ class Test3 extends Test {
                 useL3Networks("l3")
                 useAccount("xin")
             }
-        }
-
-        envSpec.create()
+        }.create()
     }
 
     @Override
     void test() {
-        VmSpec vm = envSpec.specByName("vm")
-
-        envSpec.message(APIStopVmInstanceMsg.class) {
-            throw new Exception("on purpose")
-        }
-
-        try {
-            stopVmInstance {
-                uuid = vm.inventory.uuid
-            }
-        } catch (Throwable e){
-            logger.warn(e.message, e)
-        }
-
-        envSpec.cleanSimulatorAndMessageHandlers()
-
-        stopVmInstance {
-            uuid = vm.inventory.uuid
-        }
+        diskOfferingSpec = envSpec.find("diskOffering", DiskOfferingSpec.class)
+        println("${diskOfferingSpec.name}")
     }
 }
