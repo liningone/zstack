@@ -193,7 +193,6 @@ class DetachedLocalStorageAvailableCapacityCase2 extends SubCase{
         }
 
         // check PrimaryStorageCapacityVO.availableCapacity, LocalStorageHostRefVO.availableCapacity
-        assert localStorageHostRefVO.availableCapacity == ps.availableCapacity
         assert localStorageHostRefVO.availableCapacity > 0 && ps.availableCapacity > 0
 
         // detach ps
