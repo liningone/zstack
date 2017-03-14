@@ -122,6 +122,8 @@ public class LocalStorageCapacityRecalculator {
         List<String> huuids = hq.getResultList();
         if (huuids != null && !huuids.isEmpty()) {
             calculateByHostUuids(psUuid, huuids);
+        }else{
+            calculateTotalCapacity(psUuid);
         }
         return this;
     }
