@@ -88,7 +88,7 @@ class DetachedLocalStorageAvailableCapacityCase2 extends SubCase{
 
                     kvm {
                         name = "kvm2"
-                        managementIp = "localhost"
+                        managementIp = "127.0.0.2"
                         username = "root"
                         password = "password"
                     }
