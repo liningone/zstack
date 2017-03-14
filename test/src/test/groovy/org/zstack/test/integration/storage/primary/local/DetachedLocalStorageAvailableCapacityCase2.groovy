@@ -202,18 +202,18 @@ class DetachedLocalStorageAvailableCapacityCase2 extends SubCase{
             clusterUuid = cluster.uuid
         }
 
-        // check PrimaryStorageCapacityVO capacity = 0
+        // check PrimaryStorageCapacityVO capacity != 0
         boolean retryResult = retryInMillis(2, 500) {
             ps = queryPrimaryStorage {
                 conditions=["uuid=${ps.uuid}".toString()]
             }[0]
             return  0 == ps.availableCapacity
         }
-        assert retryResult
-        assert 0 == ps.availableCapacity
-        assert 0 == ps.availablePhysicalCapacity
-        assert 0 == ps.totalCapacity
-        assert 0 == ps.totalPhysicalCapacity
+        assert false == retryResult
+        assert 0 != ps.availableCapacity
+        assert 0 != ps.availablePhysicalCapacity
+        assert 0 != ps.totalCapacity
+        assert 0 != ps.totalPhysicalCapacity
 
     }
 
