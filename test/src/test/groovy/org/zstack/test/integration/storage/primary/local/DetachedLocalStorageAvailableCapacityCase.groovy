@@ -197,7 +197,7 @@ class DetachedLocalStorageAvailableCapacityCase extends SubCase{
             clusterUuid = cluster.uuid
         }
 
-        // check PrimaryStorageCapacityVO.availableCapacity > 0
+        // check PrimaryStorageCapacityVO capacity = 0
         boolean retryResult = retryInMillis(2, 500) {
             ps = queryPrimaryStorage {
                 conditions=["uuid=${ps.uuid}".toString()]
