@@ -157,6 +157,7 @@ class DetachedLocalStorageAvailableCapacityCase2 extends SubCase{
                 useImage("image1")
                 useL3Networks("l3")
                 useRootDiskOffering("diskOffering")
+                useCluster("cluster")
             }
         }
     }
