@@ -464,14 +464,6 @@ public class PrimaryStorageManagerImpl extends AbstractService implements Primar
                                 long now = cap.getTotalCapacity()
                                         - used
                                         - (cap.getSystemUsedCapacity() == null ? 0 : cap.getSystemUsedCapacity());
-                                /*
-                                if(now < 0){
-                                    logger.warn(String.format("negative available capacity of the primary storage, detail: re-calculated available capacity of the primary storage" +
-                                                    "[uuid:%s, before:%s, now:%s] with over-provisioning ratio[%s]",
-                                            psUuid, before, now, ratioMgr.getRatio(psUuid)));
-                                    now = 0;
-                                }
-                                */
                                 cap.setAvailableCapacity(now);
                                 logger.debug(String.format("re-calculated available capacity of the primary storage" +
                                                 "[uuid:%s, before:%s, now:%s] with over-provisioning ratio[%s]",
