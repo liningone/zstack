@@ -46,6 +46,7 @@ import java.util.Map;
  * <p>
  * confirm ths vm's qos is gone
  */
+// CreateAndStartAndStopVmTest
 public class TestMevoco17 {
     CLogger logger = Utils.getLogger(TestMevoco17.class);
     Deployer deployer;

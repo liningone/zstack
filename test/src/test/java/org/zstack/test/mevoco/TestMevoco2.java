@@ -46,6 +46,7 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * confirm all DHCP setup for vms
  */
+//DHCPForVmCase
 public class TestMevoco2 {
     Deployer deployer;
     Api api;

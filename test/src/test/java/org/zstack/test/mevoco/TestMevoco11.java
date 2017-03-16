@@ -55,6 +55,7 @@ import java.util.List;
  * <p>
  * confirm the DHCP IP tag is still on the L3
  */
+// MigrateVmFailTest AddIpRangeTest DeleteL3Test
 public class TestMevoco11 {
     CLogger logger = Utils.getLogger(TestMevoco11.class);
     Deployer deployer;

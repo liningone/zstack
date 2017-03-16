@@ -52,6 +52,7 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * confirm no images get re-downloaded
  */
+//ImageCacheCase
 public class TestMevoco1 {
     Deployer deployer;
     Api api;

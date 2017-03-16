@@ -42,6 +42,7 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * confirm the memory capacity and disk capacity returned correctly
  */
+//PrimaryStorageCapacityTest
 public class TestMevoco6 {
     CLogger logger = Utils.getLogger(TestMevoco6.class);
     Deployer deployer;

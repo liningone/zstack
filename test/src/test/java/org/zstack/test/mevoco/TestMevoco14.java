@@ -35,6 +35,8 @@ import java.util.concurrent.TimeUnit;
  * confirm only 49 vms created successfully
  * confirm the 49 vms don't occupy the DHCP server IP
  */
+// Deprecated with TestMevoco13
+@Deprecated
 public class TestMevoco14 {
     Deployer deployer;
     Api api;

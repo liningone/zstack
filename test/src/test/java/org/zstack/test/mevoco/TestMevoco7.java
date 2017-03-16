@@ -61,6 +61,7 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * confirm the primary storage capacity is correct
  */
+//PrimaryStorageCapacityTest2
 public class TestMevoco7 {
     CLogger logger = Utils.getLogger(TestMevoco7.class);
     Deployer deployer;

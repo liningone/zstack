@@ -43,6 +43,7 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * confirm each time the primary storage capacity is correct
  */
+@Deprecated
 public class TestMevoco18 {
     CLogger logger = Utils.getLogger(TestMevoco18.class);
     Deployer deployer;

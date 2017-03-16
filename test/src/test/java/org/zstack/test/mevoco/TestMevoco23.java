@@ -35,6 +35,7 @@ import org.zstack.utils.logging.CLogger;
  * <p>
  * confirm the DHCP IP tag removed from the L3Network2
  */
+// DeleteL3Test DeleteIpRangeTest
 public class TestMevoco23 {
     CLogger logger = Utils.getLogger(TestMevoco23.class);
     Deployer deployer;

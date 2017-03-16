@@ -29,6 +29,7 @@ import org.zstack.utils.logging.CLogger;
  * <p>
  * confirm the vm created with the strategy
  */
+//MevocoHostAllocatorStrategyTest
 public class TestMevoco3 {
     CLogger logger = Utils.getLogger(TestMevoco3.class);
     Deployer deployer;

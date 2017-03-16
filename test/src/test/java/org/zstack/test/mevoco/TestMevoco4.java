@@ -53,6 +53,7 @@ import static org.zstack.utils.CollectionDSL.*;
  * <p>
  * confirm the user data removed
  */
+// UserDataCase
 public class TestMevoco4 {
     Deployer deployer;
     Api api;

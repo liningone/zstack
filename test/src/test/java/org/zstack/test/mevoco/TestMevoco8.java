@@ -46,6 +46,7 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * confirm cap2 = current available capacity
  */
+//PrimaryStorageCapacityTest3
 public class TestMevoco8 {
     CLogger logger = Utils.getLogger(TestMevoco8.class);
     Deployer deployer;

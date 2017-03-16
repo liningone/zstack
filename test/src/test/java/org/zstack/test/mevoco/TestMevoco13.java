@@ -33,6 +33,7 @@ import org.zstack.utils.logging.CLogger;
  * confirm the second vm failed to create because there is no IP.
  * because the second IP is occupied by the DHCP server
  */
+// CreateVmTest
 public class TestMevoco13 {
     CLogger logger = Utils.getLogger(TestMevoco13.class);
     Deployer deployer;

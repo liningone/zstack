@@ -39,6 +39,7 @@ import java.util.List;
  * <p>
  * confirm dhcp set on the dst host and removed from the src host
  */
+// MigrateVmTest
 public class TestMevoco10 {
     CLogger logger = Utils.getLogger(TestMevoco10.class);
     Deployer deployer;

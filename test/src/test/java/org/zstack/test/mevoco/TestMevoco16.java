@@ -39,6 +39,7 @@ import org.zstack.utils.logging.CLogger;
  * <p>
  * confirm creating vm failed
  */
+// PrimaryStorageCapacityTest4
 public class TestMevoco16 {
     CLogger logger = Utils.getLogger(TestMevoco16.class);
     Deployer deployer;

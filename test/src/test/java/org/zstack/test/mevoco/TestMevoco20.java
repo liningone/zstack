@@ -52,6 +52,7 @@ import static org.zstack.utils.CollectionDSL.list;
  * <p>
  * confirm the IPs are set on the vm by the flat network services
  */
+// ChangeNetworkSerivceTest
 public class TestMevoco20 {
     CLogger logger = Utils.getLogger(TestMevoco20.class);
     Deployer deployer;

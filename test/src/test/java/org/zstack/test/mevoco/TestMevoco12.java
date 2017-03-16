@@ -25,6 +25,7 @@ import org.zstack.utils.logging.CLogger;
  * confirm the flat dhcp works
  * confirm the over-provisioning works
  */
+// MevocoLicenseCase
 public class TestMevoco12 {
     CLogger logger = Utils.getLogger(TestMevoco12.class);
     Deployer deployer;

@@ -65,6 +65,7 @@ import java.util.Map;
  * 3. add DNS
  * confirm the DNS added successfully
  */
+//MevocoSystemTagCase
 public class TestMevoco {
     CLogger logger = Utils.getLogger(TestMevoco.class);
     Deployer deployer;
