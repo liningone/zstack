@@ -8,6 +8,7 @@ import org.zstack.network.securitygroup.SecurityGroupConstant
 import org.zstack.network.service.virtualrouter.VirtualRouterConstant
 import org.zstack.sdk.CreateDataVolumeAction
 import org.zstack.sdk.PrimaryStorageInventory
+import org.zstack.sdk.VolumeInventory
 import org.zstack.storage.primary.local.LocalStorageHostRefVO
 import org.zstack.storage.primary.local.LocalStorageHostRefVO_
 import org.zstack.storage.primary.local.LocalStorageKvmBackend
@@ -205,6 +206,7 @@ class LocalStorageHostRefVOCase extends SubCase{
                 map(e(LocalStorageSystemTags.DEST_HOST_FOR_CREATING_DATA_VOLUME_TOKEN, kvmHostSpec.inventory.uuid))
         )
         DiskOfferingSpec diskOfferingSpec = env.specByName("diskOffering")
+        /*
         CreateDataVolumeAction action = new CreateDataVolumeAction(
                 sessionId: Test.currentEnvSpec.session.uuid,
                 primaryStorageUuid: primaryStorageSpec2.inventory.uuid,
@@ -212,9 +214,14 @@ class LocalStorageHostRefVOCase extends SubCase{
                 systemTags:[localStorageSystemTag],
                 diskOfferingUuid: diskOfferingSpec.inventory.uuid
         )
-        CreateDataVolumeAction.Result createDataVolumeActionResult = action.call()
-        assert null != createDataVolumeActionResult.error
-        assert null == createDataVolumeActionResult.value
+        */
+        VolumeInventory volumeInventory = createDataVolume {
+            primaryStorageUuid = primaryStorageSpec2.inventory.uuid
+            name = "dataVolume"
+            systemTags = [localStorageSystemTag]
+            diskOfferingUuid = diskOfferingSpec.inventory.uuid
+        }
+        assert null != volumeInventory
 
 
         // 4.Check primary storage available capacity
@@ -232,6 +239,12 @@ class LocalStorageHostRefVOCase extends SubCase{
         // 5.Check LocalStorageHostRefVO available capacity
         checkLocalStorageHostRefVO(kvmHostSpec.inventory.uuid, primaryStorageInventory.uuid)
         checkLocalStorageHostRefVO(kvmHostSpec.inventory.uuid, primaryStorageInventory2.uuid)
+
+
+        // clean env
+        deleteDataVolume {
+            uuid = volumeInventory.uuid
+        }
 
     }
 
