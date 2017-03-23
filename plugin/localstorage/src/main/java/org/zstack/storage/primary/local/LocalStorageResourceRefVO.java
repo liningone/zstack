@@ -34,7 +34,6 @@ public class LocalStorageResourceRefVO {
 
     @Column
     @Id
-    @ForeignKey(parentEntityClass = HostEO.class, onDeleteAction = ReferenceOption.CASCADE)
     private String hostUuid;
 
     @Column

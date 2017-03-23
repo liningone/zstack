@@ -59,7 +59,7 @@ ALTER TABLE LocalStorageHostRefVO ADD CONSTRAINT fkLocalStorageHostRefVOPrimaryS
 
 # Foreign keys for table LocalStorageResourceRefVO
 
-ALTER TABLE LocalStorageResourceRefVO ADD CONSTRAINT fkLocalStorageResourceRefVOHostEO FOREIGN KEY (hostUuid) REFERENCES HostEO (uuid) ON DELETE CASCADE;
+# ALTER TABLE LocalStorageResourceRefVO ADD CONSTRAINT fkLocalStorageResourceRefVOHostEO FOREIGN KEY (hostUuid) REFERENCES HostEO (uuid) ON DELETE CASCADE;
 ALTER TABLE LocalStorageResourceRefVO ADD CONSTRAINT fkLocalStorageResourceRefVOPrimaryStorageEO FOREIGN KEY (primaryStorageUuid) REFERENCES PrimaryStorageEO (uuid) ON DELETE CASCADE;
 
 # Drop all old foreign keys for identity VOs; foreign keys are all auto-generated now
