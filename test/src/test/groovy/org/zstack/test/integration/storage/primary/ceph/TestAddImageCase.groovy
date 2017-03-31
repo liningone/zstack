@@ -6,6 +6,7 @@ import org.zstack.header.volume.VolumeConstant
 import org.zstack.sdk.BackupStorageInventory
 import org.zstack.sdk.ImageInventory
 import org.zstack.sdk.VmInstanceInventory
+import org.zstack.sdk.ZoneInventory
 import org.zstack.test.integration.storage.CephEnv
 import org.zstack.test.integration.storage.StorageTest
 import org.zstack.testlib.EnvSpec
@@ -43,6 +44,18 @@ class TestAddImageCase extends SubCase{
 
     void createImageFromRootVolume(){
         BackupStorageInventory bs = env.inventoryByName("ceph-bk")
+        ZoneInventory zone  = env.inventoryByName("zone")
+
+
+        def imageName = "large-image"
+        def thread = Thread.start {
+            addImage {
+                name = imageName
+                url = "http://my-site/foo.iso"
+                backupStorageUuids = [bs.uuid]
+                format = ImageConstant.ISO_FORMAT_STRING
+            }
+        }
 
         addImage {
             name = "asdf"

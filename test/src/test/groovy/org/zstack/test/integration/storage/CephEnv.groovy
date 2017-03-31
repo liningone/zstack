@@ -108,17 +108,6 @@ use:
                 }
             }
 
-            vm {
-                name = "test-vm"
-                useCluster("test-cluster")
-                useHost("host")
-                useL3Networks("l3")
-                useInstanceOffering("instanceOffering")
-                useRootDiskOffering("diskOffering")
-                useImage("image")
-
-            }
-
         }
     }
 }
