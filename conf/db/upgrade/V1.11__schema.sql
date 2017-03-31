@@ -633,3 +633,5 @@ CREATE TABLE  `zstack`.`NotificationSubscriptionVO` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE LocalStorageResourceRefVO DROP FOREIGN KEY `fkLocalStorageResourceRefVOHostEO`;
+
+ALTER TABLE ImageBackupStorageRefVO ADD UNIQUE INDEX(imageUuid,backupStorageUuid);
