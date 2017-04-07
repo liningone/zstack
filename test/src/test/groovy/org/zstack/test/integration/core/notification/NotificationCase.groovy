@@ -82,6 +82,7 @@ class NotificationCase extends SubCase {
             testQueryNotifications()
             testUpdateNotificationsStatus()
             testDeleteNotifications()
+            env.delete()
         }
     }
 }
