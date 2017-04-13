@@ -72,8 +72,6 @@ test the vr is set to never stop
             vr = dbf.listAll(VirtualRouterVmVO.class).get(0)
             return dbFindByUuid(vr.uuid,VmInstanceVO.class).state == VmInstanceState.Running
         }
-
-        env.delete()
     }
     @Override
     void clean() {
