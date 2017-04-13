@@ -67,11 +67,12 @@ test the vr is set to never stop
         TimeUnit.SECONDS.sleep(2);
         vr = dbf.listAll(VirtualRouterVmVO.class).get(0)
         assert dbFindByUuid(vr.uuid,VmInstanceVO.class).state == VmInstanceState.Running
-        
+
         deleteVip {
             uuid = eip.vipUuid
         }
 
+        env.delete()
     }
     @Override
     void clean() {
