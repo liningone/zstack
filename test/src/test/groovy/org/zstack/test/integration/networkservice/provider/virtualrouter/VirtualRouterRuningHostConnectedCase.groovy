@@ -73,14 +73,6 @@ test the vr is set to never stop
             return dbFindByUuid(vr.uuid,VmInstanceVO.class).state == VmInstanceState.Running
         }
 
-        deleteVip {
-            uuid = eip.vipUuid
-        }
-
-        deleteVip {
-            uuid = eip.vipUuid
-        }
-
         env.delete()
     }
     @Override
