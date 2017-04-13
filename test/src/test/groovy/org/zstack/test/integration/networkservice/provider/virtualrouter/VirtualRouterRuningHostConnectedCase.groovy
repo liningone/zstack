@@ -6,6 +6,7 @@ import org.zstack.header.vm.VmInstanceEO
 import org.zstack.header.vm.VmInstanceState
 import org.zstack.header.vm.VmInstanceVO
 import org.zstack.network.service.virtualrouter.VirtualRouterVmVO
+import org.zstack.sdk.EipInventory
 import org.zstack.sdk.HostInventory
 import org.zstack.sdk.VmInstanceInventory
 import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
@@ -48,7 +49,7 @@ test the vr is set to never stop
         HostInventory host1 = env.inventoryByName("kvm")
         VmInstanceInventory vmi = env.inventoryByName("vm")
         VirtualRouterVmVO vr = dbf.listAll(VirtualRouterVmVO.class).get(0)
-
+        EipInventory eip = env.inventoryByName("eip")
         reconnectHost {
             uuid = host1.uuid
         }
@@ -66,6 +67,11 @@ test the vr is set to never stop
         TimeUnit.SECONDS.sleep(2);
         vr = dbf.listAll(VirtualRouterVmVO.class).get(0)
         assert dbFindByUuid(vr.uuid,VmInstanceVO.class).state == VmInstanceState.Running
+        
+        deleteVip {
+            uuid = eip.vipUuid
+        }
+
     }
     @Override
     void clean() {
