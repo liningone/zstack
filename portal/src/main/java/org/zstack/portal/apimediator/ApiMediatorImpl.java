@@ -67,6 +67,9 @@ public class ApiMediatorImpl extends AbstractService implements ApiMediator, Glo
             bus.replyErrorByMessageType(msg, ie.getError());
             return;
         } catch (StopRoutingException e) {
+            e.printStackTrace();
+            System.out.println("Lining123");
+            logger.error("Lining123" + e.getCause().getMessage());
             return;
         }
 
