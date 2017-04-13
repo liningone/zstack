@@ -64,9 +64,14 @@ test the vr is set to never stop
         rebootVmInstance {
             uuid = vmi.uuid
         }
-        TimeUnit.SECONDS.sleep(2);
-        vr = dbf.listAll(VirtualRouterVmVO.class).get(0)
-        assert dbFindByUuid(vr.uuid,VmInstanceVO.class).state == VmInstanceState.Running
+        assert retryInSecs(4){
+            if(dbf.listAll(VirtualRouterVmVO.class).size() == 0){
+                return false
+            }
+
+            vr = dbf.listAll(VirtualRouterVmVO.class).get(0)
+            return dbFindByUuid(vr.uuid,VmInstanceVO.class).state == VmInstanceState.Running
+        }
 
         deleteVip {
             uuid = eip.vipUuid
