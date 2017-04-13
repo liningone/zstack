@@ -72,6 +72,10 @@ test the vr is set to never stop
             uuid = eip.vipUuid
         }
 
+        deleteVip {
+            uuid = eip.vipUuid
+        }
+
         env.delete()
     }
     @Override
