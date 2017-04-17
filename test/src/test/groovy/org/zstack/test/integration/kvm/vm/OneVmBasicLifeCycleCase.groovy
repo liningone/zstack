@@ -13,7 +13,7 @@ import org.zstack.sdk.InstanceOfferingInventory
 import org.zstack.sdk.L3NetworkInventory
 import org.zstack.sdk.VmInstanceInventory
 import org.zstack.test.integration.kvm.Env
-import org.zstack.test.integration.kvm.KvmTest
+import org.zstack.test.integration.kvm.KvmTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.testlib.VmSpec
@@ -31,7 +31,7 @@ test a VM's start/stop/reboot/destroy/recover operations
 
     @Override
     void setup() {
-        useSpring(KvmTest.springSpec)
+        useSpring(KvmTestSuite.springSpec)
     }
 
     @Override

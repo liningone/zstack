@@ -10,7 +10,7 @@ import org.zstack.sdk.VolumeInventory
 import org.zstack.storage.primary.local.LocalStorageKvmBackend
 import org.zstack.storage.volume.VolumeGlobalConfig
 import org.zstack.test.integration.storage.Env
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.ClusterSpec
 import org.zstack.testlib.DiskOfferingSpec
 import org.zstack.testlib.EnvSpec
@@ -36,7 +36,7 @@ class LocalStorageGCCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

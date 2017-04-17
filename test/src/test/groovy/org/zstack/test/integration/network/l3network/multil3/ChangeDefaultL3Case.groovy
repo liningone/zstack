@@ -12,7 +12,7 @@ import org.zstack.sdk.L3NetworkInventory
 import org.zstack.sdk.VmInstanceInventory
 import org.zstack.sdk.VmNicInventory
 
-import org.zstack.test.integration.network.NetworkTest
+import org.zstack.test.integration.network.NetworkTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.utils.CollectionUtils
@@ -35,7 +35,7 @@ use:
     EnvSpec env
     @Override
     void setup() {
-        useSpring(NetworkTest.springSpec)
+        useSpring(NetworkTestSuite.springSpec)
     }
 
     @Override

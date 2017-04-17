@@ -18,7 +18,7 @@ import org.zstack.sdk.L3NetworkInventory
 import org.zstack.sdk.NetworkServiceL3NetworkRefInventory
 import org.zstack.sdk.VmInstanceInventory
 import org.zstack.sdk.VmNicInventory
-import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
+import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.utils.data.SizeUnit
@@ -37,7 +37,7 @@ class ChangeNetworkSerivceTest extends SubCase{
 
     @Override
     void setup() {
-        useSpring(NetworkServiceProviderTest.springSpec)
+        useSpring(NetworkServiceProviderTestSuite.springSpec)
         spring {
             securityGroup()
         }

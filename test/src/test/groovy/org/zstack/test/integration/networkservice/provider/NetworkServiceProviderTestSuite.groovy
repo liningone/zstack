@@ -1,27 +1,35 @@
-package org.zstack.test.integration.identity
+package org.zstack.test.integration.networkservice.provider
 
 import org.zstack.testlib.SpringSpec
 import org.zstack.testlib.Test
 
 /**
- * Created by AlanJager on 2017/3/20.
+ * Created by xing5 on 2017/2/27.
  */
-class IdentityTest extends Test {
+class NetworkServiceProviderTestSuite extends Test {
     static SpringSpec springSpec = makeSpring {
-        sftpBackupStorage()
         localStorage()
+        sftpBackupStorage()
+        portForwarding()
         virtualRouter()
-        securityGroup()
+        flatNetwork()
+        eip()
+        lb()
+        vyos()
         kvm()
     }
 
     @Override
     void setup() {
         useSpring(springSpec)
+        spring {
+            securityGroup()
+        }
     }
 
     @Override
     void environment() {
+
     }
 
     @Override

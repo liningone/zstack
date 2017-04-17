@@ -5,7 +5,7 @@ import org.zstack.header.vm.VmInstanceVO
 import org.zstack.sdk.ImageInventory
 import org.zstack.sdk.InstanceOfferingInventory
 import org.zstack.sdk.L3NetworkInventory
-import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
+import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 /**
@@ -21,7 +21,7 @@ class VirtualRouterCreateCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(NetworkServiceProviderTest.springSpec)
+        useSpring(NetworkServiceProviderTestSuite.springSpec)
     }
 
     @Override

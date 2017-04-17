@@ -2,14 +2,12 @@ package org.zstack.test.integration.storage.snapshot
 
 import org.zstack.sdk.CreateVolumeSnapshotSchedulerAction
 import org.zstack.sdk.SchedulerInventory
-import org.zstack.sdk.VolumeSnapshotInventory
 import org.zstack.test.integration.storage.Env
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.testlib.VmSpec
 
-import java.sql.Timestamp
 import java.util.concurrent.TimeUnit
 
 /**
@@ -25,7 +23,7 @@ class VolumeSnapshotCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

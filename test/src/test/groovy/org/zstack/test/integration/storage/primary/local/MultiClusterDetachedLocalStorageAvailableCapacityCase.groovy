@@ -8,7 +8,7 @@ import org.zstack.network.service.virtualrouter.VirtualRouterConstant
 import org.zstack.sdk.*
 import org.zstack.storage.primary.local.LocalStorageHostRefVO
 import org.zstack.storage.primary.local.LocalStorageHostRefVO_
-import org.zstack.test.integration.kvm.KvmTest
+import org.zstack.test.integration.kvm.KvmTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.utils.data.SizeUnit
@@ -25,7 +25,7 @@ class MultiClusterDetachedLocalStorageAvailableCapacityCase extends SubCase{
 
     @Override
     void setup() {
-        useSpring(KvmTest.springSpec)
+        useSpring(KvmTestSuite.springSpec)
     }
 
     @Override

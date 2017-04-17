@@ -1,7 +1,7 @@
 package org.zstack.test.integration.storage.backup.sftp
 
 import org.zstack.sdk.*
-import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
+import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTestSuite
 import org.zstack.testlib.util.search.SDKQueryTestValidator
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
@@ -21,7 +21,7 @@ class TestQuerySftpBackupStorage extends SubCase {
 
     @Override
     void setup() {
-        useSpring(NetworkServiceProviderTest.springSpec)
+        useSpring(NetworkServiceProviderTestSuite.springSpec)
     }
 
     @Override

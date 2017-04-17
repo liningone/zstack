@@ -9,7 +9,7 @@ import org.zstack.header.storage.primary.PrimaryStorageCapacityVO
 import org.zstack.header.storage.primary.PrimaryStorageVO
 import org.zstack.storage.primary.smp.SMPConstants
 import org.zstack.test.integration.storage.SMPEnv
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.ClusterSpec
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.HostSpec
@@ -25,7 +25,7 @@ class SMPCapacityCase extends SubCase{
 
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

@@ -1,23 +1,15 @@
 package org.zstack.test.integration.storage.primary.cascade
 
-import groovy.transform.TypeChecked
 import junit.framework.Assert
 import org.zstack.appliancevm.ApplianceVmVO
 import org.zstack.core.db.DatabaseFacade
 import org.zstack.header.network.service.NetworkServiceType
-import org.zstack.header.vm.VmInstanceState
 import org.zstack.header.vm.VmInstanceVO
 import org.zstack.network.securitygroup.SecurityGroupConstant
-import org.zstack.network.service.eip.EipConstant
-import org.zstack.network.service.lb.LoadBalancerConstants
-import org.zstack.network.service.portforwarding.PortForwardingConstant
 import org.zstack.network.service.virtualrouter.VirtualRouterConstant
-import org.zstack.network.service.virtualrouter.vyos.VyosConstants
 import org.zstack.sdk.ClusterInventory
 import org.zstack.sdk.PrimaryStorageInventory
-import org.zstack.storage.primary.nfs.NfsPrimaryStorage
-import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.utils.data.SizeUnit
@@ -38,7 +30,7 @@ use:
     DatabaseFacade dbf
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

@@ -8,7 +8,7 @@ import org.zstack.sdk.EipInventory
 import org.zstack.sdk.GarbageCollectorInventory
 import org.zstack.sdk.HostInventory
 import org.zstack.sdk.L3NetworkInventory
-import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
+import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTestSuite
 import org.zstack.test.integration.networkservice.provider.flat.FlatNetworkServiceEnv
 import org.zstack.testlib.EipSpec
 import org.zstack.testlib.EnvSpec
@@ -16,8 +16,6 @@ import org.zstack.testlib.HostSpec
 import org.zstack.testlib.HttpError
 import org.zstack.testlib.L3NetworkSpec
 import org.zstack.testlib.SubCase
-
-import java.util.concurrent.TimeUnit
 
 /**
  * Created by xing5 on 2017/3/6.
@@ -36,7 +34,7 @@ class FlatNetworkGCCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(NetworkServiceProviderTest.springSpec)
+        useSpring(NetworkServiceProviderTestSuite.springSpec)
     }
 
     @Override

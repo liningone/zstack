@@ -27,7 +27,7 @@ class ImageGCCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(ImageTest.springSpec)
+        useSpring(ImageTestSuite.springSpec)
     }
 
     @Override

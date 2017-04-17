@@ -4,11 +4,9 @@ import org.zstack.header.identity.AccountVO
 import org.zstack.sdk.AccountInventory
 import org.zstack.sdk.SessionInventory
 import org.zstack.test.integration.identity.Env
-import org.zstack.test.integration.identity.IdentityTest
+import org.zstack.test.integration.identity.IdentityTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
-
-import java.util.concurrent.TimeUnit
 
 /**
  * Created by AlanJager on 2017/3/23.
@@ -24,7 +22,7 @@ class accountCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(IdentityTest.springSpec)
+        useSpring(IdentityTestSuite.springSpec)
     }
 
     @Override

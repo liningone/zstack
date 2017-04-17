@@ -7,7 +7,7 @@ import org.zstack.header.vm.VmInstanceVO
 import org.zstack.sdk.ClusterInventory
 import org.zstack.sdk.L2NetworkInventory
 import org.zstack.sdk.VmInstanceInventory
-import org.zstack.test.integration.network.NetworkTest
+import org.zstack.test.integration.network.NetworkTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.utils.data.SizeUnit
@@ -33,7 +33,7 @@ use:
 
     @Override
     void setup() {
-        useSpring(NetworkTest.springSpec)
+        useSpring(NetworkTestSuite.springSpec)
     }
 
     @Override

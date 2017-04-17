@@ -1,22 +1,14 @@
 package org.zstack.test.integration.storage.primary.ceph
 
-import groovy.transform.TypeChecked
 import org.zstack.core.db.DatabaseFacade
-import org.zstack.header.search.Inventory
-import org.zstack.sdk.BackupStorageInventory
 import org.zstack.sdk.CephBackupStorageInventory
 import org.zstack.sdk.CephPrimaryStorageInventory
 import org.zstack.sdk.ClusterInventory
 import org.zstack.storage.ceph.CephCapacityVO
-import org.zstack.storage.ceph.backup.CephBackupStorageBase
-import org.zstack.storage.ceph.backup.CephBackupStorageMonBase
-import org.zstack.storage.ceph.primary.CephPrimaryStorageBase
 import org.zstack.test.integration.storage.CephEnv
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
-import org.zstack.utils.Utils
-import org.zstack.utils.logging.CLogger
 
 /**
  * Created by Administrator on 2017-03-20.
@@ -28,7 +20,7 @@ class DeleteCephCapacityVOCase extends SubCase{
 
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

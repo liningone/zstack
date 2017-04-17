@@ -1,17 +1,18 @@
-package org.zstack.test.integration.kvm.hostallocator
+package org.zstack.test.integration.kvm
 
 import org.zstack.testlib.SpringSpec
 import org.zstack.testlib.Test
 
 /**
- * Created by david on 3/6/17.
+ * Created by xing5 on 2017/2/22.
  */
-class AllocatorTest extends Test {
+class KvmTestSuite extends Test {
     static SpringSpec springSpec = makeSpring {
-        localStorage()
         sftpBackupStorage()
-        kvm()
+        localStorage()
+        virtualRouter()
         securityGroup()
+        kvm()
     }
 
     @Override

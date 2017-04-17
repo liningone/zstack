@@ -8,8 +8,7 @@ import org.zstack.sdk.LdapServerInventory
 import org.zstack.test.integration.ldap.Env
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
-import org.zstack.testlib.Test
-import org.zstack.test.integration.ldap.LdapTest
+import org.zstack.test.integration.ldap.LdapTestSuite
 
 /**
  * Created by Administrator on 2017-03-22.
@@ -49,15 +48,15 @@ class LdapConnCase extends SubCase {
     }
 
     void testLdapConn(){
-        final LDAPInterface ldapConnection = LdapTest.embeddedLdapRule.ldapConnection()
-        final SearchResult searchResult = ldapConnection.search(LdapTest.DOMAIN_DSN, SearchScope.SUB, "(objectClass=person)")
+        final LDAPInterface ldapConnection = LdapTestSuite.embeddedLdapRule.ldapConnection()
+        final SearchResult searchResult = ldapConnection.search(LdapTestSuite.DOMAIN_DSN, SearchScope.SUB, "(objectClass=person)")
         Assert.assertEquals(3, searchResult.getEntryCount())
 
 
         def result = addLdapServer {
             name = "ldap0"
             description = "test-ldap0"
-            base = LdapTest.DOMAIN_DSN
+            base = LdapTestSuite.DOMAIN_DSN
             url = "ldap://localhost:1888"
             username = ""
             password = ""

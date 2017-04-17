@@ -11,12 +11,10 @@ import org.zstack.header.rest.RESTFacade
 import org.zstack.sdk.*
 import org.zstack.storage.primary.local.LocalStorageKvmSftpBackupStorageMediatorImpl
 import org.zstack.test.integration.kvm.Env
-import org.zstack.test.integration.kvm.KvmTest
-import org.zstack.testlib.ApiPathTracker
+import org.zstack.test.integration.kvm.KvmTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.FuncTrigger
 import org.zstack.testlib.SubCase
-import org.zstack.testlib.Test
 import org.zstack.utils.gson.JSONObjectUtil
 
 /**
@@ -32,7 +30,7 @@ class VmProgressCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(KvmTest.springSpec)
+        useSpring(KvmTestSuite.springSpec)
     }
 
     @Override

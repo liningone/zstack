@@ -7,9 +7,7 @@ import org.zstack.core.cloudbus.CloudBusIN
 import org.zstack.core.thread.AsyncThread
 import org.zstack.header.AbstractService
 import org.zstack.header.message.Message
-import org.zstack.test.integration.core.CoreLibraryTest
 import org.zstack.test.integration.core.cloudbus.HelloWorldMsgForCloudBusCase
-import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 
 import java.util.concurrent.CountDownLatch

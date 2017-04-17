@@ -2,7 +2,7 @@ package org.zstack.test.integration.storage.backup
 
 import org.zstack.sdk.L3NetworkInventory
 import org.zstack.test.integration.storage.Env
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 
@@ -19,7 +19,7 @@ class MapCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

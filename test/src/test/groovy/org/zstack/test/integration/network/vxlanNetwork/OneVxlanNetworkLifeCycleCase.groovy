@@ -1,7 +1,7 @@
 package org.zstack.test.integration.network.vxlanNetwork
 
 import org.zstack.sdk.*
-import org.zstack.test.integration.network.NetworkTest
+import org.zstack.test.integration.network.NetworkTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.testlib.ZoneSpec
@@ -17,7 +17,7 @@ class OneVxlanNetworkLifeCycleCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(NetworkTest.springSpec)
+        useSpring(NetworkTestSuite.springSpec)
     }
 
     @Override

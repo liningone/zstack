@@ -15,7 +15,7 @@ class LeastVmPreferredAllocatorCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(AllocatorTest.springSpec)
+        useSpring(AllocatorTestSuite.springSpec)
     }
 
     @Override

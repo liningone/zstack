@@ -29,7 +29,7 @@ import org.zstack.sdk.UserInventory
 import org.zstack.sdk.VipInventory
 import org.zstack.sdk.VmInstanceInventory
 import org.zstack.sdk.VmNicInventory
-import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
+import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTestSuite
 import org.zstack.testlib.*
 import org.zstack.utils.data.SizeUnit
 
@@ -81,7 +81,7 @@ class TestPolicyForEip extends SubCase {
 
     @Override
     void setup() {
-        useSpring(NetworkServiceProviderTest.springSpec)
+        useSpring(NetworkServiceProviderTestSuite.springSpec)
     }
 
     @Override

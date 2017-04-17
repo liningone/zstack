@@ -1,16 +1,12 @@
 package org.zstack.test.integration.networkservice.provider.virtualrouter
 
 import org.zstack.core.db.DatabaseFacade
-import org.zstack.header.vm.VmInstance
-import org.zstack.header.vm.VmInstanceEO
 import org.zstack.header.vm.VmInstanceState
 import org.zstack.header.vm.VmInstanceVO
 import org.zstack.network.service.virtualrouter.VirtualRouterVmVO
 import org.zstack.sdk.HostInventory
 import org.zstack.sdk.VmInstanceInventory
-import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
-import org.zstack.test.integration.networkservice.provider.flat.FlatNetworkServiceEnv
-import org.zstack.test.integration.storage.Env
+import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 
@@ -28,7 +24,7 @@ test the vr is set to never stop
     DatabaseFacade dbf
     @Override
     void setup() {
-        useSpring(NetworkServiceProviderTest.springSpec)
+        useSpring(NetworkServiceProviderTestSuite.springSpec)
     }
 
     @Override

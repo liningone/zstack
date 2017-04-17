@@ -12,7 +12,7 @@ import org.zstack.network.service.virtualrouter.VirtualRouterVmVO_
 import org.zstack.sdk.EipInventory
 import org.zstack.sdk.L3NetworkInventory
 import org.zstack.sdk.VmInstanceInventory
-import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTest
+import org.zstack.test.integration.networkservice.provider.NetworkServiceProviderTestSuite
 import org.zstack.test.integration.networkservice.provider.virtualrouter.VirtualRouterNetworkServiceEnv
 import org.zstack.testlib.EipSpec
 import org.zstack.testlib.EnvSpec
@@ -51,7 +51,7 @@ class VirtualRouterOperationCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(NetworkServiceProviderTest.springSpec)
+        useSpring(NetworkServiceProviderTestSuite.springSpec)
     }
 
     @Override

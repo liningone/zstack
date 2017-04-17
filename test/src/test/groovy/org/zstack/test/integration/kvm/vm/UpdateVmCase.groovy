@@ -3,7 +3,7 @@ package org.zstack.test.integration.kvm.vm
 import org.zstack.compute.vm.VmSystemTags
 import org.zstack.sdk.VmInstanceInventory
 import org.zstack.test.integration.kvm.Env
-import org.zstack.test.integration.kvm.KvmTest
+import org.zstack.test.integration.kvm.KvmTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.testlib.VmSpec
@@ -21,7 +21,7 @@ class UpdateVmCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(KvmTest.springSpec)
+        useSpring(KvmTestSuite.springSpec)
     }
 
     @Override

@@ -8,7 +8,7 @@ import org.zstack.storage.ceph.CephSystemTags
 import org.zstack.storage.ceph.primary.CephPrimaryStorageBase
 import org.zstack.storage.ceph.primary.CephPrimaryStoragePoolVO
 import org.zstack.storage.ceph.primary.CephPrimaryStoragePoolVO_
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.*
 import org.zstack.utils.EncodingConversion
 import org.zstack.utils.data.SizeUnit
@@ -24,7 +24,7 @@ class CephPrimaryStorageVolumePoolsCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

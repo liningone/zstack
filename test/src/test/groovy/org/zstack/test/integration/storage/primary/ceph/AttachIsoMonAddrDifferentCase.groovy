@@ -7,7 +7,7 @@ import org.zstack.storage.ceph.primary.CephPrimaryStorageBase
 import org.zstack.storage.ceph.primary.CephPrimaryStorageMonVO
 import org.zstack.storage.ceph.primary.CephPrimaryStorageMonVO_
 import org.zstack.test.integration.storage.CephEnv
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 
@@ -24,7 +24,7 @@ class AttachIsoMonAddrDifferentCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

@@ -11,7 +11,7 @@ import org.zstack.testlib.Test
  */
 
 
-class LdapTest  extends Test {
+class LdapTestSuite extends Test {
     static SpringSpec springSpec = makeSpring {
         virtualRouter()
         vyos()

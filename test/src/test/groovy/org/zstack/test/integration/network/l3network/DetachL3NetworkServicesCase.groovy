@@ -2,10 +2,9 @@ package org.zstack.test.integration.network.l3network
 
 import org.zstack.header.network.service.NetworkServiceType
 import org.zstack.network.securitygroup.SecurityGroupConstant
-import org.zstack.network.service.flat.FlatNetworkServiceConstant
 import org.zstack.network.service.virtualrouter.VirtualRouterConstant
 import org.zstack.sdk.L3NetworkInventory
-import org.zstack.test.integration.network.NetworkTest
+import org.zstack.test.integration.network.NetworkTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 
@@ -22,7 +21,7 @@ class DetachL3NetworkServicesCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(NetworkTest.springSpec)
+        useSpring(NetworkTestSuite.springSpec)
         spring {
             securityGroup()
         }

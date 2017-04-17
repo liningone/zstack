@@ -8,7 +8,7 @@ import org.zstack.sdk.VmInstanceInventory
 import org.zstack.storage.primary.smp.KvmBackend
 import org.zstack.storage.primary.smp.SMPPrimaryStorageGlobalConfig
 import org.zstack.test.integration.storage.SMPEnv
-import org.zstack.test.integration.storage.StorageTest
+import org.zstack.test.integration.storage.StorageTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.HttpError
 import org.zstack.testlib.PrimaryStorageSpec
@@ -32,7 +32,7 @@ class SMPGCCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(StorageTest.springSpec)
+        useSpring(StorageTestSuite.springSpec)
     }
 
     @Override

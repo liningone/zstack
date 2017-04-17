@@ -16,7 +16,7 @@ import org.zstack.sdk.DestroyVmInstanceAction
 import org.zstack.sdk.GarbageCollectorInventory
 import org.zstack.sdk.VmInstanceInventory
 import org.zstack.test.integration.kvm.Env
-import org.zstack.test.integration.kvm.KvmTest
+import org.zstack.test.integration.kvm.KvmTestSuite
 import org.zstack.testlib.*
 
 /**
@@ -30,7 +30,7 @@ class VmGCCase extends SubCase {
 
     @Override
     void setup() {
-        useSpring(KvmTest.springSpec)
+        useSpring(KvmTestSuite.springSpec)
     }
 
     private VmInstanceInventory createGCCandidateDestroyedVm() {

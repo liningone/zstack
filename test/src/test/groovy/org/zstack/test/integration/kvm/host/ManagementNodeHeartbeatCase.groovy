@@ -6,7 +6,7 @@ import org.zstack.header.managementnode.ManagementNodeState
 import org.zstack.header.managementnode.ManagementNodeVO
 import org.zstack.portal.managementnode.ManagementNodeGlobalConfig
 import org.zstack.test.integration.kvm.Env
-import org.zstack.test.integration.kvm.KvmTest
+import org.zstack.test.integration.kvm.KvmTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 
@@ -21,7 +21,7 @@ class ManagementNodeHeartbeatCase extends SubCase{
 
     @Override
     void setup() {
-        useSpring(KvmTest.springSpec)
+        useSpring(KvmTestSuite.springSpec)
     }
 
     @Override

@@ -1,7 +1,7 @@
 package org.zstack.test.integration.network.l3network.getfreeip
 
 import org.zstack.sdk.FreeIpInventory
-import org.zstack.test.integration.network.NetworkTest
+import org.zstack.test.integration.network.NetworkTestSuite
 import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.IpRangeSpec
 import org.zstack.testlib.L3NetworkSpec
@@ -16,7 +16,7 @@ class OneL3OneIpRangeSomeIpUsed extends SubCase {
 
     @Override
     void setup() {
-        useSpring(NetworkTest.springSpec)
+        useSpring(NetworkTestSuite.springSpec)
     }
 
     @Override
