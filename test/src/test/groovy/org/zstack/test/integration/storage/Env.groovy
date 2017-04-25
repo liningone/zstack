@@ -172,6 +172,11 @@ class Env {
                     name = "vr"
                     url  = "http://zstack.org/download/vr.qcow2"
                 }
+
+                image {
+                    name = "test-iso"
+                    url  = "http://zstack.org/download/vr.qcow2"
+                }
             }
 
             zone {
