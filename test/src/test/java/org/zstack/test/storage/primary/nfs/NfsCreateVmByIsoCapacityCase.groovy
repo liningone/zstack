@@ -88,8 +88,8 @@ class NfsCreateVmByIsoCapacityCase extends SubCase {
             BackupStorageSpec bsSpec = spec.specByUuid(cmd.uuid)
 
             def rsp = new SftpBackupStorageCommands.DownloadResponse()
-            rsp.size = image_physical_size
-            rsp.actualSize = image_virtual_size
+            rsp.size = image_virtual_size
+            rsp.actualSize = image_physical_size
             rsp.availableCapacity = bsSpec.availableCapacity
             rsp.totalCapacity = bsSpec.totalCapacity
             download_image_path_invoked = true
