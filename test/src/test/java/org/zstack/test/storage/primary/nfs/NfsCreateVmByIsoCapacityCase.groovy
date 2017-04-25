@@ -66,7 +66,7 @@ class NfsCreateVmByIsoCapacityCase extends SubCase {
         def bs = env.inventoryByName("sftp")
         //def image_virtual_size = 10737418240 //10G
         //def image_physical_size = 1073741824 //1G
-        def image_virtual_size = 10 //10G
+        def image_virtual_size = 10737418240 * 2 //10G
         def image_physical_size = 1//1G
 
 
