@@ -82,7 +82,8 @@ class EventBasedGarbageCollectorCase extends SubCase {
         protected void triggerNow(GCCompletion completion) {
 
             System.out.println("lining123")
-            EventBasedGCInDbBehavior ret = this.testLogicForJobLoadedFromDb(this)
+            System.out.println(name)
+            EventBasedGCInDbBehavior ret = testLogicForJobLoadedFromDb(this)
 
             if (ret == EventBasedGCInDbBehavior.SUCCESS) {
                 completion.success()
