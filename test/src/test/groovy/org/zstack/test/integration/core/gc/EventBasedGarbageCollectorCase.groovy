@@ -31,6 +31,12 @@ class EventBasedGarbageCollectorCase extends SubCase {
         String text
     }
 
+    static enum EventBasedGCInDbBehavior {
+        SUCCESS,
+        FAIL,
+        CANCEL
+    }
+
     class EventBasedGC1 extends EventBasedGarbageCollector {
         Closure trigger = { true }
         Closure testLogic
@@ -45,14 +51,14 @@ class EventBasedGarbageCollectorCase extends SubCase {
 
         @Override
         protected void triggerNow(GCCompletion completion) {
+            System.out.println("lining123EventBasedGC1")
+            if(testLogic == null ){
+                System.out.println("null")
+            }else{
+                System.out.println("not null")
+            }
             testLogic(completion)
         }
-    }
-
-    static enum EventBasedGCInDbBehavior {
-        SUCCESS,
-        FAIL,
-        CANCEL
     }
 
     static class EventBasedGCInDb extends EventBasedGarbageCollector {
@@ -80,8 +86,6 @@ class EventBasedGarbageCollectorCase extends SubCase {
 
         @Override
         protected void triggerNow(GCCompletion completion) {
-
-
 
             System.out.println("lining123")
             if(testLogicForJobLoadedFromDb == null ){
@@ -122,11 +126,15 @@ class EventBasedGarbageCollectorCase extends SubCase {
 
         def gc = new EventBasedGC1()
         gc.NAME = "testEventBasedGCSuccess"
+
+        System.out.println("lining123EventBasedGCaaa")
         gc.testLogic = { GCCompletion completion ->
             count ++
             completion.success()
             latch.countDown()
         }
+        System.out.println(gc.testLogic.toString())
+        System.out.println("lining123EventBasedGCbbb")
         gc.submit()
 
         GarbageCollectorVO vo = dbf.findByUuid(gc.uuid, GarbageCollectorVO.class)
