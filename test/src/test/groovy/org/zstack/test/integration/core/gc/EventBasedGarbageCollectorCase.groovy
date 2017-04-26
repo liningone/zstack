@@ -101,7 +101,7 @@ class EventBasedGarbageCollectorCase extends SubCase {
 
         @Override
         protected void triggerNow(GCCompletion completion) {
-
+            System.out.println("liningtestLoadedOrphanJobSuccess123")
             EventBasedGCInDbBehavior ret = testLogicForJobLoadedFromDb(this)
 
             if (ret == EventBasedGCInDbBehavior.SUCCESS) {
@@ -382,7 +382,10 @@ class EventBasedGarbageCollectorCase extends SubCase {
         vo.setManagementNodeUuid(null)
         dbf.update(vo)
 
+        System.out.println("liningtestLoadedOrphanJobSuccess")
         gc.testLogicForJobLoadedFromDb = { return EventBasedGCInDbBehavior.CANCEL }
+        System.out.println("liningtestLoadedOrphanJobSuccess" + gc.testLogicForJobLoadedFromDb.toString())
+
 
         // load orphan jobs
         gcMgr.managementNodeReady()
