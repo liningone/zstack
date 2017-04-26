@@ -49,8 +49,6 @@ class EventBasedGarbageCollectorCase extends SubCase {
         }
     }
 
-    static Closure<EventBasedGCInDbBehavior> testLogicForJobLoadedFromDb
-
     static enum EventBasedGCInDbBehavior {
         SUCCESS,
         FAIL,
@@ -59,6 +57,8 @@ class EventBasedGarbageCollectorCase extends SubCase {
 
     static class EventBasedGCInDb extends EventBasedGarbageCollector {
         Closure trigger = { true }
+
+        Closure<EventBasedGCInDbBehavior> testLogicForJobLoadedFromDb
 
         @GC
         String name
@@ -80,6 +80,7 @@ class EventBasedGarbageCollectorCase extends SubCase {
 
         @Override
         protected void triggerNow(GCCompletion completion) {
+
             System.out.println("lining123")
             EventBasedGCInDbBehavior ret = testLogicForJobLoadedFromDb(this)
 
@@ -161,7 +162,7 @@ class EventBasedGarbageCollectorCase extends SubCase {
         dbf.update(vo)
 
         System.out.println("lining123aaaa")
-        testLogicForJobLoadedFromDb = { return EventBasedGCInDbBehavior.CANCEL }
+        gc.testLogicForJobLoadedFromDb = { return EventBasedGCInDbBehavior.CANCEL }
         System.out.println("lining123bbbb")
 
 
