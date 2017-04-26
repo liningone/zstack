@@ -88,6 +88,7 @@ class EventBasedGarbageCollectorCase extends SubCase {
         protected void triggerNow(GCCompletion completion) {
 
             System.out.println("lining123")
+            System.out.println(this)
             if(testLogicForJobLoadedFromDb == null ){
                 System.out.println("null")
             }else{
@@ -169,6 +170,7 @@ class EventBasedGarbageCollectorCase extends SubCase {
         gc.description = "description"
         gc.context = new Context()
         gc.context.text = "something"
+        System.out.println(gc)
         System.out.println("lining123aaaa")
         gc.testLogicForJobLoadedFromDb = { return EventBasedGCInDbBehavior.CANCEL }
         System.out.println(gc.testLogicForJobLoadedFromDb.toString())
