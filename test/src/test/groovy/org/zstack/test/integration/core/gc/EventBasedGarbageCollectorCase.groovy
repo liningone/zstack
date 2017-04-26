@@ -169,17 +169,16 @@ class EventBasedGarbageCollectorCase extends SubCase {
         gc.description = "description"
         gc.context = new Context()
         gc.context.text = "something"
+        System.out.println("lining123aaaa")
+        gc.testLogicForJobLoadedFromDb = { return EventBasedGCInDbBehavior.CANCEL }
+        System.out.println(gc.testLogicForJobLoadedFromDb.toString())
+        System.out.println("lining123bbbb")
         gc.saveToDatabase()
 
         // make the Job as an orphan
         GarbageCollectorVO vo = dbf.findByUuid(gc.uuid, GarbageCollectorVO.class)
         vo.setManagementNodeUuid(null)
         dbf.update(vo)
-
-        System.out.println("lining123aaaa")
-        gc.testLogicForJobLoadedFromDb = { return EventBasedGCInDbBehavior.CANCEL }
-        System.out.println(gc.testLogicForJobLoadedFromDb.toString())
-        System.out.println("lining123bbbb")
 
 
         // load orphan jobs
