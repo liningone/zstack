@@ -163,6 +163,7 @@ class EventBasedGarbageCollectorCase extends SubCase {
 
         System.out.println("lining123aaaa")
         gc.testLogicForJobLoadedFromDb = { return EventBasedGCInDbBehavior.CANCEL }
+        System.out.println(gc.testLogicForJobLoadedFromDb)
         System.out.println("lining123bbbb")
 
 
