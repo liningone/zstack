@@ -104,6 +104,17 @@ class NfsDetachAttachClusterCapacityCase extends SubCase {
             primaryStorageUuid = ps.uuid
             clusterUuid = cluster.uuid
         }
+        retryInSecs(3){
+            GetPrimaryStorageCapacityResult capacity = getPrimaryStorageCapacity {
+                primaryStorageUuids = [ps.uuid]
+            }
+            return {
+                assert 0 == capacity.availableCapacity
+                assert 0 == capacity.availablePhysicalCapacity
+                assert 0 == capacity.totalCapacity
+                assert 0 == capacity.totalPhysicalCapacity
+            }
+        }
         //env.simulator(LocalStorageKvmBackend.INIT_PATH) { HttpEntity<String> e, EnvSpec spec ->
         //    LocalStorageSpec lspec = spec.specByUuid(ps.uuid)
 
