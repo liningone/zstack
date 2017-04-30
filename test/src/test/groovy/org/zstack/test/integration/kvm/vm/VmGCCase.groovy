@@ -59,6 +59,7 @@ class VmGCCase extends SubCase {
 
     @Override
     void environment() {
+
         env = Env.oneVmBasicEnv()
     }
 
