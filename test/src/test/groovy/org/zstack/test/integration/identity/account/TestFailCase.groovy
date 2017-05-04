@@ -6,6 +6,7 @@ import org.zstack.sdk.SessionInventory
 import org.zstack.test.integration.identity.Env
 import org.zstack.test.integration.identity.IdentityTest
 import org.zstack.testlib.EnvSpec
+import org.zstack.testlib.StopTestSuiteException
 import org.zstack.testlib.SubCase
 
 /**
@@ -17,7 +18,7 @@ class TestFailCase extends SubCase {
     @Override
     void clean() {
         env.delete()
-        throw new Exception("")
+        throw new StopTestSuiteException()
     }
 
     @Override
