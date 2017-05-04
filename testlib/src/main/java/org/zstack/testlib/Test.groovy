@@ -429,9 +429,9 @@ mysqldump -u root zstack > ${failureLogDir.absolutePath}/dbdump.sql
             } catch (StopTestSuiteException e) {
                 hasFailure = true
                 r.success = false
-                //r.error = e.message
+                r.error = e.message
 
-                //logger.error("a sub case [${c.class}] of suite[${this.class}] throw StopTestSuiteException, ${e.message}", e)
+                logger.error("a sub case [${c.class}] of suite[${this.class}] throw StopTestSuiteException, ${e.message}", e)
                 break
             } catch (Throwable t) {
                 hasFailure = true
