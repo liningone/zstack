@@ -437,9 +437,9 @@ mysqldump -u root zstack > ${failureLogDir.absolutePath}/dbdump.sql
                 hasFailure = true
 
                 r.success = false
-                r.error = t.message
+                //r.error = t.message
 
-                logger.error("a sub case [${c.class}] of suite[${this.class}] fails, ${t.message}", t)
+                //logger.error("a sub case [${c.class}] of suite[${this.class}] fails, ${t.message}", t)
             } finally {
                 def fname = c.class.name.replace(".", "_") + "." + (r.success ? "success" : "failure")
                 def rfile = new File([dir.absolutePath, fname].join("/"))
