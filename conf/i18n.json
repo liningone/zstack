@@ -3615,7 +3615,7 @@
   {
     "raw": "port forwarding rule[uuid:%s] is not in state of Enabled,  current state is %s. A rule can only be attached when its state is Enabled",
     "en_US": "port forwarding rule[uuid:{0}] is not in state of Enabled,  current state is {1}. A rule can only be attached when its state is Enabled",
-    "zh_CN": "",
+    "zh_CN": "端口转发规则[uuid:{0}]未启用，当前状态[{1}]，只有在启用的情况下才可以被挂载。",
     "arguments": [
       "msg.getRuleUuid()",
       "state"
@@ -3626,7 +3626,7 @@
   {
     "raw": "guest l3Network of vm nic[uuid:%s] and vip l3Network of port forwarding rule[uuid:%s] are the same network",
     "en_US": "guest l3Network of vm nic[uuid:{0}] and vip l3Network of port forwarding rule[uuid:{1}] are the same network",
-    "zh_CN": "",
+    "zh_CN": "虚拟机网卡[uuid:{0}]的客户L3网络，lining",
     "arguments": [
       "msg.getVmNicUuid()",
       "msg.getRuleUuid()"
@@ -3637,7 +3637,7 @@
   {
     "raw": "the VIP[uuid:%s] is already bound the a guest L3 network[uuid:%s], but the VM nic[uuid:%s] is on another guest L3 network[uuid:%s]",
     "en_US": "the VIP[uuid:{0}] is already bound the a guest L3 network[uuid:{1}], but the VM nic[uuid:{2}] is on another guest L3 network[uuid:{3}]",
-    "zh_CN": "",
+    "zh_CN": "虚拟ip[uuid:{0}]已经绑定在了客户L3网络[uuid:{1}]上，但是虚拟机网卡nic[uuid:{2}]却在另一个客户L3网络[uuid:{3}]上",
     "arguments": [
       "msg.getVipUuid()",
       "peerL3Uuid",
@@ -3650,7 +3650,7 @@
   {
     "raw": "for range port forwarding, the port range size must match; vip range[%s, %s]\u0027s size doesn\u0027t match range[%s, %s]\u0027s size",
     "en_US": "for range port forwarding, the port range size must match; vip range[{0}, {1}]\u0027s size doesn\u0027t match range[{2}, {3}]\u0027s size",
-    "zh_CN": "",
+    "zh_CN": "端口转发规则端口范围，虚拟ip范围[{0}，{1}]大小不能匹配范围[{2}，{3}]大小。",
     "arguments": [
       "msg.getVipPortStart()",
       "msg.getVipPortEnd()",
@@ -3663,7 +3663,7 @@
   {
     "raw": "invalid CIDR[%s]",
     "en_US": "invalid CIDR[{0}]",
-    "zh_CN": "",
+    "zh_CN": "无效CIDR[{0}]。",
     "arguments": [
       "msg.getAllowedCidr()"
     ],
@@ -3673,7 +3673,7 @@
   {
     "raw": "vip port range[vipStartPort:%s, vipEndPort:%s] overlaps with rule[uuid:%s, vipStartPort:%s, vipEndPort:%s]",
     "en_US": "vip port range[vipStartPort:{0}, vipEndPort:{1}] overlaps with rule[uuid:{2}, vipStartPort:{3}, vipEndPort:{4}]",
-    "zh_CN": "",
+    "zh_CN": "虚拟ip端口范围[vipStartPort:{0}，vipEndPort:{1}]与规则[uuid:{2}，vipStartPort:{3}，vipEndPort:{4}]重叠。",
     "arguments": [
       "vipStart",
       "vipEnd",
@@ -3687,7 +3687,7 @@
   {
     "raw": "guest l3Network of vm nic[uuid:%s] and vip l3Network of vip[uuid: %s] are the same network",
     "en_US": "guest l3Network of vm nic[uuid:{0}] and vip l3Network of vip[uuid: {1}] are the same network",
-    "zh_CN": "",
+    "zh_CN": "虚拟机网卡[uuid:{0}]的客户L3网络，和虚拟ip[uuid:{1}] L3网络是同一个网络。",
     "arguments": [
       "msg.getVmNicUuid()",
       "msg.getVipUuid()"
@@ -3698,7 +3698,7 @@
   {
     "raw": "the VM[name:%s uuid:%s] already has port forwarding rules that have different VIPs than the one[uuid:%s]",
     "en_US": "the VM[name:{0} uuid:{1}] already has port forwarding rules that have different VIPs than the one[uuid:{2}]",
-    "zh_CN": "",
+    "zh_CN": "lining",
     "arguments": [
       "vm.getName()",
       "vm.getUuid()",
@@ -3710,7 +3710,7 @@
   {
     "raw": "unsupported ip allocation strategy[%s]",
     "en_US": "unsupported ip allocation strategy[{0}]",
-    "zh_CN": "",
+    "zh_CN": "不受支持的ip分配策略[{0}]。",
     "arguments": [
       "msg.getAllocatorStrategy()"
     ],
@@ -3720,7 +3720,7 @@
   {
     "raw": "requiredIp[%s] is not in valid IPv4 mediaType",
     "en_US": "requiredIp[{0}] is not in valid IPv4 mediaType",
-    "zh_CN": "",
+    "zh_CN": "lining",
     "arguments": [
       "msg.getRequiredIp()"
     ],
@@ -3730,7 +3730,7 @@
   {
     "raw": "there is already a vip[%s] on l3Network[uuid:%s]",
     "en_US": "there is already a vip[{0}] on l3Network[uuid:{1}]",
-    "zh_CN": "",
+    "zh_CN": "lining",
     "arguments": [
       "msg.getRequiredIp()",
       "msg.getL3NetworkUuid()"
