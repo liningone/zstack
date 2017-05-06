@@ -390,12 +390,12 @@ public class ApiMessageProcessorImpl implements ApiMessageProcessor {
                                     throw new CloudRuntimeException(String.format("the API class[%s] does not have @RestRequest but it uses a successIfResourceNotExisting helper", msg.getClass()));
                                 }
 
-                                try{
+                                //try{
                                     // trigger EO cleanup
                                     dbf.eoCleanup(at.resourceType());
-                                }catch (Exception e){
+                                //}catch (Exception e){
                                     //  If has foreign key constraint, Allow cleanup failed
-                                }
+                                //}
 
                                 APIEvent evt = (APIEvent) rat.responseClass().getConstructor(String.class).newInstance(msg.getId());
 
