@@ -58,11 +58,10 @@ class StartCreatedStatusVmWhenL3DeletedCase extends SubCase {
         // clean EO There is a bug, fix pr is ready,
         // so need delete  vm
 
-        /*
+
         destroyVmInstance {
             uuid = newVm.uuid
         }
-        */
 
     }
 
