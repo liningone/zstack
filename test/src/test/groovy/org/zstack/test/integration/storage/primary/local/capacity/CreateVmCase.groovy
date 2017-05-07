@@ -170,7 +170,7 @@ class CreateVmCase extends SubCase {
             imageUuid = vm.imageUuid
             l3NetworkUuids = [vm.defaultL3NetworkUuid]
         }
-        assert checked
+        // assert checked
 
         return
         reconnectHost {
