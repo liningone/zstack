@@ -541,7 +541,7 @@ mysqldump -u root zstack > ${failureLogDir.absolutePath}/dbdump.sql
         while (count < total) {
             try {
                 def r = c()
-                ret = (r != null && r instanceof Boolean) ? r : true
+                ret = r == null || (r != null && r instanceof Boolean && r) ? true : false
             } catch (Throwable t) {
 
                 // Only the last retry time to throw one
