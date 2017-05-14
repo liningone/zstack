@@ -59,6 +59,7 @@ class RetryInSecsCase extends SubCase {
 
     void retryTimeTest(){
 
+        // case
         int retryTimes = 3
         long startTime = System.currentTimeMillis()
         assert retryInSecs2(retryTimes){
@@ -67,7 +68,24 @@ class RetryInSecsCase extends SubCase {
         long endTime = System.currentTimeMillis()
         assert endTime - startTime < 1000
 
+        // case
+        retryTimes = 2
+        long currentTime = 0
+        startTime = System.currentTimeMillis()
+        retryInSecs2(retryTimes){
 
+            if(retryTimes - currentTime == 1){
+                assert true
+            }else{
+                currentTime ++
+                assert false
+            }
+        }
+        endTime = System.currentTimeMillis()
+        assert endTime - startTime > 1000 * (retryTimes -1)
+        assert endTime - startTime < 1000 * (retryTimes)
+
+        // case
         retryTimes = 3
         startTime = System.currentTimeMillis()
         try {
@@ -82,7 +100,7 @@ class RetryInSecsCase extends SubCase {
             assert endTime - startTime < 1000 * (retryTimes)
         }
 
-
+        // case
         retryTimes = 2
         startTime = System.currentTimeMillis()
         assert !retryInSecs2(retryTimes){
