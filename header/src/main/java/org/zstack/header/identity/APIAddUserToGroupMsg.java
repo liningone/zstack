@@ -11,7 +11,8 @@ import org.zstack.header.rest.RestRequest;
 @RestRequest(
         path = "/accounts/groups/{groupUuid}/users",
         responseClass = APIAddUserToGroupEvent.class,
-        method = HttpMethod.POST
+        method = HttpMethod.POST,
+        parameterName = "params"
 )
 public class APIAddUserToGroupMsg extends APIMessage implements AccountMessage {
     @APIParam(checkAccount = true)
