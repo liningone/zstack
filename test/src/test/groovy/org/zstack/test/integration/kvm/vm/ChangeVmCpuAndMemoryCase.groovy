@@ -197,9 +197,10 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
                     println("lining123123123")
 
                     //1.get the vm nics which are managed by vrouter or virtual router and ignore vm in flat
-                    List<String>  inners = sql("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro" +
-                            " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid " +
+                    List<String> inners = sql("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro" +
+                            " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid and l3.uuid in (:l3Uuids)" +
                             " and pro.type in (:providerType)", String.class)
+                            .param("l3Uuids", ["123","123223"])
                             .param("providerType", Arrays.asList(VyosConstants.PROVIDER_TYPE.toString(),VirtualRouterConstant.PROVIDER_TYPE.toString()))
                             .list()
                     println("lining123123")
