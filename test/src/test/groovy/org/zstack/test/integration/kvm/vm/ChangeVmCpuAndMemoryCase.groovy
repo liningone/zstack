@@ -174,6 +174,15 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
             dbf = bean(DatabaseFacade.class)
 
 
+            List<String> result = dbf.getEntityManager().createQuery("select uuid from VmInstanceVO where uuid = '123'")
+            println("lining123")
+
+            result = dbf.getEntityManager().createQuery("select uuid from VmInstanceVO where uuid = '123'", String.class)
+            println("lining1111")
+
+            return
+
+
             testOnlineChangeCpuAndMemory()
             testChangeCpuAndMemoryWhenVmStopped()
             testChangeCpuWhenVmRunning()
