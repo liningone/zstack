@@ -18,6 +18,7 @@ import org.zstack.network.service.virtualrouter.VirtualRouterConstant
 import org.zstack.network.service.virtualrouter.vyos.VyosConstants
 import org.zstack.sdk.HostInventory
 import org.zstack.sdk.InstanceOfferingInventory
+import org.zstack.sdk.L3NetworkInventory
 import org.zstack.sdk.SystemTagInventory
 import org.zstack.sdk.UpdateVmInstanceAction
 import org.zstack.sdk.VmInstanceInventory
@@ -177,7 +178,7 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
         env.create {
             VmGlobalConfig.NUMA.updateValue(true)
             vm = env.inventoryByName("vm") as VmInstanceInventory
-
+            L3NetworkInventory l3 = env.inventoryByName("l3")
             dbf = bean(DatabaseFacade.class)
 
 
@@ -200,7 +201,7 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
                     List<String> inners = sql("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro" +
                             " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid and l3.uuid in (:l3Uuids)" +
                             " and pro.type in (:providerType)", String.class)
-                            .param("l3Uuids", ["123","123223"])
+                            .param("l3Uuids", ["123",l3.uuid])
                             .param("providerType", Arrays.asList(VyosConstants.PROVIDER_TYPE.toString(),VirtualRouterConstant.PROVIDER_TYPE.toString()))
                             .list()
                     println("lining123123")
