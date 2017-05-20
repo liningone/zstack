@@ -12,6 +12,7 @@ import org.zstack.kvm.KVMAgentCommands
 import org.zstack.kvm.KVMConstant
 import org.zstack.network.securitygroup.SecurityGroupConstant
 import org.zstack.network.service.virtualrouter.VirtualRouterConstant
+import org.zstack.network.service.virtualrouter.vyos.VyosConstants
 import org.zstack.sdk.HostInventory
 import org.zstack.sdk.InstanceOfferingInventory
 import org.zstack.sdk.SystemTagInventory
@@ -22,6 +23,8 @@ import org.zstack.testlib.EnvSpec
 import org.zstack.testlib.SubCase
 import org.zstack.utils.data.SizeUnit
 import org.zstack.utils.gson.JSONObjectUtil
+
+import javax.persistence.TypedQuery
 
 import static org.zstack.utils.CollectionDSL.e
 import static org.zstack.utils.CollectionDSL.list
@@ -174,11 +177,15 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
             dbf = bean(DatabaseFacade.class)
 
 
-            List<String> result = dbf.getEntityManager().createQuery("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro " +
+
+
+            TypedQuery q =  dbf.getEntityManager().createQuery("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro " +
                     " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid" +
-                    " and pro.type in ('vrouter','VirtualRouter')" +
-                    " and l3.uuid in ('123')"
-            ,String.class).getResultList()
+                    " and pro.type in (:providerType)"
+            ,String.class).setParameter("providerType", Arrays.asList(VyosConstants.PROVIDER_TYPE.toString(),VirtualRouterConstant.PROVIDER_TYPE.toString()))
+
+            List<String> result = q.getResultList()
+
             println("lining123")
 
             result = dbf.getEntityManager().createQuery("select uuid from VmInstanceVO where uuid = '123'", String.class).getResultList()
