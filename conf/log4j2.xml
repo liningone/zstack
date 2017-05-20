@@ -82,7 +82,7 @@
                 <Logger name="org.zstack.billing" level="TRACE" />
         -->
 
-        <Logger name="org.hibernate" level="warn"/>
+        <Logger name="org.hibernate" level="DEBUG"/>
 
         <Root level="warn" additivity="false">
             <AppenderRef ref="Async"/>
