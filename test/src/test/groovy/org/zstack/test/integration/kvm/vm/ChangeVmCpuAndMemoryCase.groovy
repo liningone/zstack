@@ -174,7 +174,11 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
             dbf = bean(DatabaseFacade.class)
 
 
-            List<String> result = dbf.getEntityManager().createQuery("select uuid from VmInstanceVO where uuid = '123'").getResultList()
+            List<String> result = dbf.getEntityManager().createQuery("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro " +
+                    " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid" +
+                    " and pro.type in (\"vrouter\",\"VirtualRouter\")" +
+                    " and l3.uuid in ('123')"
+            ,String.class).getResultList()
             println("lining123")
 
             result = dbf.getEntityManager().createQuery("select uuid from VmInstanceVO where uuid = '123'", String.class).getResultList()
