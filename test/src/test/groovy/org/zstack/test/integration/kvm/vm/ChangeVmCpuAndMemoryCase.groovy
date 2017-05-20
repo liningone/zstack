@@ -201,7 +201,7 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
                     List<String> inners = sql("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro" +
                             " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid and l3.uuid in (:l3Uuids)" +
                             " and pro.type in (:providerType)", String.class)
-                            .param("l3Uuids", ["123",l3.uuid])
+                            .param("l3Uuids", [])
                             .param("providerType", Arrays.asList(VyosConstants.PROVIDER_TYPE.toString(),VirtualRouterConstant.PROVIDER_TYPE.toString()))
                             .list()
                     println("lining123123")
