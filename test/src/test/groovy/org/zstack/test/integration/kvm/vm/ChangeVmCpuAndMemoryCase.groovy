@@ -176,7 +176,7 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
 
             List<String> result = dbf.getEntityManager().createQuery("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro " +
                     " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid" +
-                    " and pro.type in (\"vrouter\",\"VirtualRouter\")" +
+                    " and pro.type in ('vrouter','VirtualRouter)" +
                     " and l3.uuid in ('123')"
             ,String.class).getResultList()
             println("lining123")
