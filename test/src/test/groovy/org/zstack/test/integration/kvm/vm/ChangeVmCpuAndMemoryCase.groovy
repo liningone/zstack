@@ -4,13 +4,16 @@ import org.springframework.http.HttpEntity
 import org.zstack.compute.vm.VmGlobalConfig
 import org.zstack.compute.vm.VmSystemTags
 import org.zstack.core.db.DatabaseFacade
+import org.zstack.core.db.SQLBatchWithReturn
 import org.zstack.header.host.HostVO
 import org.zstack.header.network.service.NetworkServiceType
 import org.zstack.header.vm.VmInstanceState
 import org.zstack.header.vm.VmInstanceVO
+import org.zstack.header.vm.VmNicInventory
 import org.zstack.kvm.KVMAgentCommands
 import org.zstack.kvm.KVMConstant
 import org.zstack.network.securitygroup.SecurityGroupConstant
+import org.zstack.network.service.vip.VipVO
 import org.zstack.network.service.virtualrouter.VirtualRouterConstant
 import org.zstack.network.service.virtualrouter.vyos.VyosConstants
 import org.zstack.sdk.HostInventory
@@ -25,6 +28,7 @@ import org.zstack.utils.data.SizeUnit
 import org.zstack.utils.gson.JSONObjectUtil
 
 import javax.persistence.TypedQuery
+import java.util.stream.Collectors
 
 import static org.zstack.utils.CollectionDSL.e
 import static org.zstack.utils.CollectionDSL.list
@@ -177,7 +181,32 @@ class ChangeVmCpuAndMemoryCase extends SubCase {
             dbf = bean(DatabaseFacade.class)
 
 
+            new SQLBatchWithReturn<List<VmNicInventory>>(){
 
+                @Override
+                protected List<VmNicInventory> scripts() {
+
+
+                    List<VmNicInventory> candidates = new ArrayList<>()
+
+                    VmNicInventory vmNicInventory = new VmNicInventory()
+                    vmNicInventory.setL3NetworkUuid("123")
+                    vmNicInventory.setUuid("123")
+                    candidates.add(vmNicInventory)
+
+                    println("lining123123123")
+
+                    //1.get the vm nics which are managed by vrouter or virtual router and ignore vm in flat
+                    List<String>  inners = sql("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro" +
+                            " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid " +
+                            " and pro.type in (:providerType)", String.class)
+                            .param("providerType", Arrays.asList(VyosConstants.PROVIDER_TYPE.toString(),VirtualRouterConstant.PROVIDER_TYPE.toString()))
+                            .list()
+                    println("lining123123")
+
+                    return candidates
+                }
+            }.execute()
 
             TypedQuery q =  dbf.getEntityManager().createQuery("select l3.uuid from L3NetworkVO l3, NetworkServiceL3NetworkRefVO ref, NetworkServiceProviderVO pro " +
                     " where l3.uuid = ref.l3NetworkUuid and ref.networkServiceProviderUuid = pro.uuid" +
