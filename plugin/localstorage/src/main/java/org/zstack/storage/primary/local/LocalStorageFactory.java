@@ -830,6 +830,7 @@ public class LocalStorageFactory implements PrimaryStorageFactory, Component,
         List<PrimaryStorageClusterRefVO> refs = q.list();
         if (refs != null && !refs.isEmpty()) {
             for (PrimaryStorageClusterRefVO ref : refs) {
+                logger.error("fuckyou" + 5);
                 RecalculatePrimaryStorageCapacityMsg msg = new RecalculatePrimaryStorageCapacityMsg();
                 msg.setPrimaryStorageUuid(ref.getPrimaryStorageUuid());
                 bus.makeTargetServiceIdByResourceUuid(msg, PrimaryStorageConstant.SERVICE_ID, ref.getPrimaryStorageUuid());

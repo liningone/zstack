@@ -367,6 +367,7 @@ public class SMPPrimaryStorageBase extends PrimaryStorageBase {
         if (msg.isRelease()) {
             doReleasePrimaryStorageCapacity();
         } else {
+            logger.error("fuckyou" + 9);
             RecalculatePrimaryStorageCapacityMsg rmsg = new RecalculatePrimaryStorageCapacityMsg();
             rmsg.setPrimaryStorageUuid(self.getUuid());
             bus.makeLocalServiceId(rmsg, PrimaryStorageConstant.SERVICE_ID);

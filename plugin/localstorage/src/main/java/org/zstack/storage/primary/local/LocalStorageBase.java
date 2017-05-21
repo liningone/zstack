@@ -1294,6 +1294,7 @@ public class LocalStorageBase extends PrimaryStorageBase {
 
                     // the host's local storage capacity changed
                     // need to recalculate the capacity in the database
+                    logger.error("fuckyou" + 6);
                     RecalculatePrimaryStorageCapacityMsg rmsg = new RecalculatePrimaryStorageCapacityMsg();
                     rmsg.setPrimaryStorageUuid(self.getUuid());
                     bus.makeTargetServiceIdByResourceUuid(rmsg, PrimaryStorageConstant.SERVICE_ID, self.getUuid());
@@ -2066,6 +2067,7 @@ public class LocalStorageBase extends PrimaryStorageBase {
                 done(new FlowDoneHandler(completion) {
                     @Override
                     public void handle(Map data) {
+                        logger.error("fuckyou" + 8);
                         RecalculatePrimaryStorageCapacityMsg rmsg = new RecalculatePrimaryStorageCapacityMsg();
                         rmsg.setPrimaryStorageUuid(self.getUuid());
                         bus.makeLocalServiceId(rmsg, PrimaryStorageConstant.SERVICE_ID);

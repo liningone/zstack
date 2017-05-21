@@ -1005,6 +1005,7 @@ public class NfsPrimaryStorage extends PrimaryStorageBase {
         if (msg.isRelease()) {
             doReleasePrimaryStorageCapacity();
         } else {
+            logger.error("fuckyou" + 10);
             RecalculatePrimaryStorageCapacityMsg rmsg = new RecalculatePrimaryStorageCapacityMsg();
             rmsg.setPrimaryStorageUuid(self.getUuid());
             bus.makeLocalServiceId(rmsg, PrimaryStorageConstant.SERVICE_ID);

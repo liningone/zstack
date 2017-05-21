@@ -34,6 +34,8 @@ import org.zstack.storage.primary.PrimaryStorageSystemTags;
 import org.zstack.storage.primary.nfs.NfsPrimaryStorageKVMBackendCommands.NfsPrimaryStorageAgentResponse;
 import org.zstack.tag.SystemTagCreator;
 import org.zstack.tag.TagManager;
+import org.zstack.utils.Utils;
+import org.zstack.utils.logging.CLogger;
 import org.zstack.utils.path.PathUtil;
 
 import static org.zstack.core.Platform.operr;
@@ -50,6 +52,9 @@ import static org.zstack.utils.CollectionDSL.map;
 
 public class NfsPrimaryStorageFactory implements NfsPrimaryStorageManager, PrimaryStorageFactory, Component, CreateTemplateFromVolumeSnapshotExtensionPoint, RecalculatePrimaryStorageCapacityExtensionPoint,
         PrimaryStorageDetachExtensionPoint, HostDeleteExtensionPoint{
+
+    private static CLogger logger = Utils.getLogger(NfsPrimaryStorageFactory.class);
+
     @Autowired
     private DatabaseFacade dbf;
     @Autowired
@@ -457,6 +462,7 @@ public class NfsPrimaryStorageFactory implements NfsPrimaryStorageManager, Prima
 
     @Override
     public void afterDetachPrimaryStorage(PrimaryStorageInventory inventory, String clusterUuid) {
+        logger.error("fuckyou" + 4);
         RecalculatePrimaryStorageCapacityMsg rmsg = new RecalculatePrimaryStorageCapacityMsg();
         rmsg.setPrimaryStorageUuid(inventory.getUuid());
         bus.makeTargetServiceIdByResourceUuid(rmsg, PrimaryStorageConstant.SERVICE_ID, inventory.getUuid());

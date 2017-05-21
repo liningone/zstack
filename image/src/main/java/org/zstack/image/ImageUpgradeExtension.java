@@ -160,6 +160,7 @@ public class ImageUpgradeExtension implements Component {
                         // Ask primary storage service to recalculate the capacities
                         final List<RecalculatePrimaryStorageCapacityMsg> rmsgs = dbf.listAll(PrimaryStorageVO.class).stream()
                                 .map((psvo) -> {
+                                    logger.error("fuckyou" + 7);
                                     RecalculatePrimaryStorageCapacityMsg rmsg = new RecalculatePrimaryStorageCapacityMsg();
                                     rmsg.setPrimaryStorageUuid(psvo.getUuid());
                                     bus.makeLocalServiceId(rmsg, PrimaryStorageConstant.SERVICE_ID);

@@ -381,6 +381,7 @@ public abstract class PrimaryStorageBase extends AbstractPrimaryStorage {
                 connectHook(param, new Completion(chain, completion) {
                     @Override
                     public void success() {
+                        logger.error("fuckyou" + 0);
                         RecalculatePrimaryStorageCapacityMsg rmsg = new RecalculatePrimaryStorageCapacityMsg();
                         rmsg.setPrimaryStorageUuid(self.getUuid());
                         bus.makeLocalServiceId(rmsg, PrimaryStorageConstant.SERVICE_ID);

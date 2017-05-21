@@ -125,6 +125,7 @@ public class PrimaryStorageCapacityUpdater {
                             " We need to recalculate its capacity", capacityVO.getUuid(),
                     originalCopy.getTotalPhysicalCapacity(), capacityVO.getTotalPhysicalCapacity()));
             // primary storage re-sized
+            logger.error("fuckyou" + 1);
             RecalculatePrimaryStorageCapacityMsg msg = new RecalculatePrimaryStorageCapacityMsg();
             msg.setPrimaryStorageUuid(capacityVO.getUuid());
             bus.makeLocalServiceId(msg, PrimaryStorageConstant.SERVICE_ID);

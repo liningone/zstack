@@ -119,6 +119,7 @@ public class LocalStorageKvmFactory implements LocalStorageHypervisorFactory, KV
         }
 
         for (String priUUid : priUuids) {
+            logger.error("fuckyou" + 2);
             RecalculatePrimaryStorageCapacityMsg msg = new RecalculatePrimaryStorageCapacityMsg();
             msg.setPrimaryStorageUuid(priUUid);
             bus.makeTargetServiceIdByResourceUuid(msg, PrimaryStorageConstant.SERVICE_ID, priUUid);
