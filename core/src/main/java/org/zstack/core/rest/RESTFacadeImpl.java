@@ -327,9 +327,11 @@ public class RESTFacadeImpl implements RESTFacade {
             requestHeaders.set(RESTConstant.CALLBACK_URL, callbackUrl);
             MediaType JSON = MediaType.parseMediaType("application/json; charset=utf-8");
             requestHeaders.setContentType(JSON);
+            /*
             StringHttpMessageConverter m = new StringHttpMessageConverter(Charset.forName("UTF-8"));
             template.getMessageConverters().clear();
             template.getMessageConverters().add(m);
+            */
 
             if (headers != null) {
                 for (Map.Entry<String, String> e : headers.entrySet()) {
