@@ -4,7 +4,6 @@ import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -39,7 +38,6 @@ import static org.zstack.core.Platform.operr;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -292,6 +290,7 @@ public class RESTFacadeImpl implements RESTFacade {
                     if (taskUuid == null) {
                         logger.trace(String.format("[http response(url: %s)] %s", url, responseEntity.getBody()));
                     } else {
+                        logger.trace(JSONObjectUtil.toJsonString("responseEntitylining123: " + responseEntity));
                         logger.trace(String.format("[http response(url: %s, taskUuid: %s)] %s",
                                 url, taskUuid, responseEntity.getBody()));
                     }
@@ -327,11 +326,6 @@ public class RESTFacadeImpl implements RESTFacade {
             requestHeaders.set(RESTConstant.CALLBACK_URL, callbackUrl);
             MediaType JSON = MediaType.parseMediaType("application/json; charset=utf-8");
             requestHeaders.setContentType(JSON);
-            /*
-            StringHttpMessageConverter m = new StringHttpMessageConverter(Charset.forName("UTF-8"));
-            template.getMessageConverters().clear();
-            template.getMessageConverters().add(m);
-            */
 
             if (headers != null) {
                 for (Map.Entry<String, String> e : headers.entrySet()) {
